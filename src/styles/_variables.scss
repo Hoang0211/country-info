@@ -1,0 +1,25 @@
+// Screen sizes
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1300px;
+$screen-full: 1400px;
+
+// Colors
+$clr-dark: #000000;
+$clr-light: #ffffff;
+$clr-red: #ff1c1cf8;
+$clr-blue: #003cfff8;
+$clr-green: #00ad00f8;
+$clr-purple: #9700a5f8;
+$clr-gray: #c2c2c2f8;
+$clr-primary: #5e5e5e;
+
+// Layout
+$nav-height: 3rem;
+$sidebar-width: 20%;
+
+// Border
+$bd-sidebar: 1.5px solid $clr-gray;
+$bd-line: 1px solid $clr-dark;

@@ -1,0 +1,56 @@
+@import './variables';
+@import './mixins';
+@import './typography';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 24px;
+  font-family: sans-serif, monospace;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+
+  @include lgMaxBreakPoint {
+    font-size: 20px;
+  }
+
+  @include mdMaxBreakPoint {
+    font-size: 16px;
+  }
+
+  @include smMaxBreakPoint {
+    font-size: 12px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  width: 100%;
+  padding: $nav-height 5% 1rem;
+
+  .title {
+    width: 15rem;
+    margin: 0 auto 2.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: $bd-line;
+  }
+
+  @include mdMaxBreakPoint {
+    padding: $nav-height 5% 1rem;
+  }
+}

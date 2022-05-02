@@ -1,0 +1,98 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+header {
+  .nav {
+    height: $nav-height;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px $clr-gray;
+    color: $clr-light;
+    transition: margin-left 0.5s;
+
+    &-push {
+      margin-left: $sidebar-width;
+    }
+
+    &-red {
+      background-color: $clr-red;
+      .nav__favorite {
+        &-badge {
+          color: $clr-red;
+          background-color: $clr-light;
+        }
+      }
+    }
+    &-blue {
+      background-color: $clr-blue;
+    }
+    &-green {
+      background-color: $clr-green;
+    }
+    &-purple {
+      background-color: $clr-purple;
+    }
+
+    .icon {
+      font-size: 1.5rem;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      color: $clr-light;
+      cursor: pointer;
+    }
+
+    &__hamburger {
+      margin-right: 0.5rem;
+    }
+
+    &__logo {
+      margin-right: auto;
+      margin-left: 1.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    &__favorite {
+      position: relative;
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &-badge {
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        top: -10px;
+        right: -13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $clr-red;
+        font-size: 0.5rem;
+
+        @include mdMaxBreakPoint {
+          height: 20px;
+          width: 20px;
+          top: -8px;
+          right: -10px;
+        }
+        @include smMaxBreakPoint {
+          height: 15px;
+          width: 15px;
+          top: -6px;
+          right: -8px;
+        }
+      }
+    }
+  }
+}

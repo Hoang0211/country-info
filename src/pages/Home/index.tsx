@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { Product, AppState } from '../types'
-import { addProduct, removeProduct } from '../redux/actions'
+import { SidebarContext } from '../../context/sidebar-context'
+import { Product, AppState } from '../../types'
+import { addProduct, removeProduct } from '../../redux/actions'
+import './home.scss'
 
 const names = ['Apple', 'Orange', 'Avocado', 'Banana', 'Cucumber', 'Carrot']
 
 export default function Home() {
+  const { showSidebar } = useContext(SidebarContext)
+
   const dispatch = useDispatch()
   const products = useSelector((state: AppState) => state.product.inCart)
 
@@ -21,11 +25,11 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className={`home ${showSidebar ? 'home-push' : ''}`}>
       <h1>Home page</h1>
       {products.length <= 0 && <div>No products in cart</div>}
       <ul>
-        {products.map(p => (
+        {products.map((p) => (
           <li key={p.id}>
             <Link to={`/products/${p.id}`}>{`${p.name} - $${p.price}`}</Link>
             <button onClick={() => dispatch(removeProduct(p))}>Remove</button>
@@ -33,6 +37,6 @@ export default function Home() {
         ))}
       </ul>
       <button onClick={handleAddProduct}>Add product</button>
-    </>
+    </div>
   )
 }
