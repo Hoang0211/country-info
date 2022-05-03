@@ -1,14 +1,11 @@
+import { AxiosError } from 'axios'
+
 // Action types
-export const ADD_PRODUCT = 'ADD_PRODUCT'
-export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
-export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
+export const GET_COUNTRY_REQUEST = 'GET_COUNTRY'
+export const GET_COUNTRY_SUCCESS = 'GET_COUNTRY_SUCCESS'
+export const GET_COUNTRY_FAILURE = 'GET_COUNTRY_FAILURE'
 
 // Enum
-export enum DialogType {
-  SignIn = 'signIn',
-  SignUp = 'signUp',
-}
-
 export enum Theme {
   Red = 'red',
   Blue = 'blue',
@@ -16,51 +13,52 @@ export enum Theme {
   Purple = 'purple',
 }
 
-// A product
-export type Product = {
+// A country
+export type Country = {
   id: string
   name: string
-  price: number
+  population: number
+  languages: string[]
+  region: string
+  favorite: boolean
 }
 
-export type AddProductAction = {
-  type: typeof ADD_PRODUCT
+export type GetCountryRequestAction = {
+  type: typeof GET_COUNTRY_REQUEST
+}
+
+export type GetCountrySuccessAction = {
+  type: typeof GET_COUNTRY_SUCCESS
   payload: {
-    product: Product
+    allCountries: Country[]
   }
 }
 
-export type RemoveProductAction = {
-  type: typeof REMOVE_PRODUCT
+export type GetCountryFailureAction = {
+  type: typeof GET_COUNTRY_FAILURE
   payload: {
-    product: Product
+    errorMsg: string
   }
 }
 
-export type ToggleDialogAction = {
-  type: typeof TOGGLE_DIALOG
-  payload: {
-    dialog: DialogType
-  }
+// For reducer
+export type CountryState = {
+  isLoading: boolean
+  error: string
+  allCountries: Country[]
+  favoriteCountries: Country[]
 }
 
-export type UiActions = ToggleDialogAction
-
-// Use this union in reducer
-export type ProductActions = AddProductAction | RemoveProductAction
-
-export type ProductState = {
-  inCart: Product[]
-}
-
-// Using dynamic keys from an enum
-export type UiState = {
-  dialogOpen: {
-    [key in DialogType]?: boolean
-  }
-}
+export type CountryActions =
+  | GetCountryRequestAction
+  | GetCountrySuccessAction
+  | GetCountryFailureAction
 
 export type AppState = {
-  product: ProductState
-  ui: UiState
+  country: CountryState
+}
+
+// Type guard
+export function isAxiosError(candidate: any): candidate is AxiosError {
+  return candidate.isAxiosError === true
 }
