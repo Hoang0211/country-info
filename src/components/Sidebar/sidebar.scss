@@ -9,8 +9,8 @@
   overflow-x: hidden;
   transition: 0.5s;
   border-right: $bd-sidebar;
-
-  z-index: 1;
+  background-color: $clr-light;
+  z-index: 99;
 
   &-show {
     width: $sidebar-width;

@@ -24,10 +24,23 @@ export default function country(
       }
     }
     case GET_COUNTRY_SUCCESS: {
+      const allCountries = action.payload.data.map((country) => ({
+        commonName: country.name.common,
+        officialName: country.name.official,
+        capital: country.capital,
+        flag: country.flags.png,
+        population: country.population,
+        languages: country.languages,
+        borders: country.borders,
+        continents: country.continents,
+        region: country.region,
+        favorite: false,
+      }))
+
       return {
         ...state,
         isLoading: false,
-        allCountries: action.payload.allCountries,
+        allCountries: allCountries,
       }
     }
     case GET_COUNTRY_FAILURE: {

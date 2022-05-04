@@ -1,9 +1,73 @@
 @import '../../styles/variables';
+@import '../../styles/animation';
 
 .home {
+  margin-top: $nav-height;
+  display: flex;
+  flex-direction: column;
   transition: margin-left 0.5s;
 
   &-push {
     margin-left: $sidebar-width;
+  }
+
+  &__globe {
+    margin: 2rem auto 1rem;
+    font-size: 6rem;
+    color: gray;
+    animation: rotating 20s linear infinite;
+    z-index: 0;
+  }
+
+  &__title {
+    text-align: center;
+    &-red {
+      color: $clr-red;
+    }
+    &-blue {
+      color: $clr-blue;
+    }
+    &-green {
+      color: $clr-green;
+    }
+    &-purple {
+      color: $clr-purple;
+    }
+  }
+
+  &__loading,
+  &__error {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    &-red {
+      color: $clr-red;
+    }
+    &-blue {
+      color: $clr-blue;
+    }
+    &-green {
+      color: $clr-green;
+    }
+    &-purple {
+      color: $clr-purple;
+    }
+  }
+
+  &__table {
+    overflow-x: auto;
+
+    table {
+      width: 90%;
+      margin: 0 auto;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 0.5rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+    }
   }
 }

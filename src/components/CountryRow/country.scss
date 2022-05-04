@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.country {
+  &__img {
+    width: 100%;
+    max-width: 100px;
+  }
+
+  &__favorite {
+    text-align: center !important;
+    font-size: 1.5rem;
+
+    &-red {
+      color: $clr-red;
+    }
+    &-blue {
+      color: $clr-blue;
+    }
+    &-green {
+      color: $clr-green;
+    }
+    &-purple {
+      color: $clr-purple;
+    }
+
+    .icon {
+      cursor: pointer;
+    }
+  }
+}

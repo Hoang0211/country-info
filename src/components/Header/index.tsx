@@ -1,15 +1,18 @@
 import React, { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
 import { SidebarContext } from '../../context/sidebar-context'
 import { ThemeContext } from '../../context/theme-context'
-
+import { AppState } from '../../types'
 import './header.scss'
 
 const Header = () => {
   const { showSidebar, toggleSidebar } = useContext(SidebarContext)
   const { theme } = useContext(ThemeContext)
+
+  const { favoriteCountries } = useSelector((state: AppState) => state.country)
 
   return (
     <header>
@@ -24,7 +27,9 @@ const Header = () => {
           <span className="icon nav__favorite-icon">
             <MdOutlineFavoriteBorder />
           </span>
-          <span className="nav__favorite-badge">250</span>
+          <span className="nav__favorite-badge">
+            {favoriteCountries.length}
+          </span>
         </button>
       </nav>
     </header>

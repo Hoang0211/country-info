@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.form {
+  width: 60%;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  &__input {
+    width: 100%;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    border-color: rgba(128, 128, 128, 0.295);
+
+    &-red:focus {
+      border-color: $clr-red;
+    }
+    &-blue:focus {
+      border-color: $clr-blue;
+    }
+    &-green:focus {
+      border-color: $clr-green;
+    }
+    &-purple:focus {
+      border-color: $clr-purple;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include mdMaxBreakPoint {
+    width: 70%;
+  }
+
+  @include smMaxBreakPoint {
+    width: 70%;
+  }
+}

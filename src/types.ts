@@ -15,10 +15,14 @@ export enum Theme {
 
 // A country
 export type Country = {
-  id: string
-  name: string
+  commonName: string
+  officialName: string
+  capital: string[]
+  flag: string
   population: number
-  languages: string[]
+  languages: object
+  borders: string[]
+  continents: string[]
   region: string
   favorite: boolean
 }
@@ -30,7 +34,7 @@ export type GetCountryRequestAction = {
 export type GetCountrySuccessAction = {
   type: typeof GET_COUNTRY_SUCCESS
   payload: {
-    allCountries: Country[]
+    data: any[]
   }
 }
 
@@ -61,4 +65,9 @@ export type AppState = {
 // Type guard
 export function isAxiosError(candidate: any): candidate is AxiosError {
   return candidate.isAxiosError === true
+}
+
+// Props
+export type CountryProps = {
+  country: Country
 }

@@ -6,7 +6,6 @@ import {
   GET_COUNTRY_SUCCESS,
   GET_COUNTRY_FAILURE,
   CountryActions,
-  Country,
   isAxiosError,
 } from '../../types'
 
@@ -16,11 +15,11 @@ export function getCountryRequest(): CountryActions {
   }
 }
 
-export function getCountrySuccess(allCountries: Country[]): CountryActions {
+export function getCountrySuccess(data: any[]): CountryActions {
   return {
     type: GET_COUNTRY_SUCCESS,
     payload: {
-      allCountries,
+      data,
     },
   }
 }

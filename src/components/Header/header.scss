@@ -5,12 +5,17 @@ header {
   .nav {
     height: $nav-height;
     padding: 0 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 2px 5px $clr-gray;
     color: $clr-light;
     transition: margin-left 0.5s;
+    z-index: 99;
 
     &-push {
       margin-left: $sidebar-width;
