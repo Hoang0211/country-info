@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { FaGlobeAmericas } from 'react-icons/fa'
 
@@ -13,12 +13,18 @@ export default function Home() {
   const [input, setInput] = useState('')
   const [filteredArr, setFilteredArr] = useState<Country[]>([])
 
+  const inputRef = useRef<HTMLInputElement>(null) // For focus the first time
+
   const { showSidebar } = useContext(SidebarContext)
   const { theme } = useContext(ThemeContext)
 
   const { allCountries, isLoading, error } = useSelector(
     (state: AppState) => state.country
   )
+
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [])
 
   useEffect(() => {
     let allContriesClone = allCountries
@@ -43,7 +49,7 @@ export default function Home() {
     <div className={`home ${showSidebar ? 'home-push' : ''}`}>
       <FaGlobeAmericas className="icon home__globe" />
       <h1 className={`home__title home__title-${theme}`}>Country API</h1>
-      <Form input={input} inputHandler={inputHandler} />
+      <Form input={input} inputHandler={inputHandler} inputRef={inputRef} />
       {isLoading && (
         <p className={`home__loading home__loading-${theme}`}>Loading ...</p>
       )}

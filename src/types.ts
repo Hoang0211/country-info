@@ -76,4 +76,5 @@ export type CountryProps = {
 export type FormProps = {
   input: string
   inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
+  inputRef: React.RefObject<HTMLInputElement>
 }
