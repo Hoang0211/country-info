@@ -1,3 +1,4 @@
+import React from 'react'
 import { AxiosError } from 'axios'
 
 // Action types
@@ -70,4 +71,9 @@ export function isAxiosError(candidate: any): candidate is AxiosError {
 // Props
 export type CountryProps = {
   country: Country
+}
+
+export type FormProps = {
+  input: string
+  inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
 }

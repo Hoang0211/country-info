@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 
 import { ThemeContext } from '../../context/theme-context'
+import { FormProps } from '../../types'
 import './form.scss'
 
-const Form = () => {
+const Form = ({ input, inputHandler }: FormProps) => {
   const { theme } = useContext(ThemeContext)
 
   return (
@@ -12,6 +13,8 @@ const Form = () => {
         className={`form__input form__input-${theme}`}
         type="text"
         placeholder="Enter a country name..."
+        value={input}
+        onChange={inputHandler}
       ></input>
     </form>
   )
