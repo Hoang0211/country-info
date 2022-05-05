@@ -7,8 +7,12 @@ import './form.scss'
 const Form = ({ input, inputHandler, inputRef }: FormProps) => {
   const { theme } = useContext(ThemeContext)
 
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={submitHandler}>
       <input
         className={`form__input form__input-${theme}`}
         type="text"
