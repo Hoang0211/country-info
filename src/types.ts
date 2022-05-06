@@ -23,7 +23,6 @@ export type Country = {
   population: number
   languages: object
   borders: string[]
-  continents: string[]
   region: string
   favorite: boolean
 }

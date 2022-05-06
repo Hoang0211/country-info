@@ -32,7 +32,6 @@ export default function country(
         population: country.population,
         languages: country.languages,
         borders: country.borders,
-        continents: country.continents,
         region: country.region,
         favorite: false,
       }))

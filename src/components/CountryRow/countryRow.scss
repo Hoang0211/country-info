@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.country {
+.country-row {
   &__img {
     width: 100%;
     max-width: 100px;
@@ -22,9 +22,9 @@
     &-purple {
       color: $clr-purple;
     }
+  }
 
-    .icon {
-      cursor: pointer;
-    }
+  &__icon {
+    cursor: pointer;
   }
 }

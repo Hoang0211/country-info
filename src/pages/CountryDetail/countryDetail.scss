@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.country-detail {
+  height: calc(100vh - $nav-height);
+  margin-top: $nav-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  transition: margin-left 0.5s;
+
+  &-push {
+    margin-left: $sidebar-width;
+  }
+
+  &-red {
+    color: $clr-red;
+  }
+  &-blue {
+    color: $clr-blue;
+  }
+  &-green {
+    color: $clr-green;
+  }
+  &-purple {
+    color: $clr-purple;
+  }
+
+  &__loading,
+  &__error {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}

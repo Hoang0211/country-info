@@ -1,0 +1,36 @@
+.country-card {
+  width: 80%;
+  max-width: 700px;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px black;
+
+  &__head-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__common-name,
+  &__capital,
+  &__detail {
+    color: black;
+  }
+
+  &__common-name,
+  &__icon {
+    font-size: 1.75rem;
+  }
+
+  &__img {
+    width: 70%;
+    max-width: 200px;
+    margin: 1rem auto;
+    border: 1px solid black;
+  }
+}
