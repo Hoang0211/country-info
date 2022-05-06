@@ -1,6 +1,10 @@
 @import '../../styles/variables';
 
 .country-row {
+  &__link {
+    color: black;
+  }
+
   &__img {
     width: 100%;
     max-width: 100px;

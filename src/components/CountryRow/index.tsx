@@ -19,7 +19,12 @@ const CountryRow = ({ country }: CountryProps) => {
         />
       </td>
       <td>
-        <Link to={`/country/${country.commonName}`}>{country.commonName}</Link>
+        <Link
+          className="country-row__link"
+          to={`/country/${country.commonName}`}
+        >
+          {country.commonName}
+        </Link>
       </td>
       <td>{country.capital ? country.capital : 'N/A'}</td>
       <td>{country.region}</td>
