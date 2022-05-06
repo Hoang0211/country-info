@@ -21,6 +21,10 @@ header {
       margin-left: $sidebar-width;
     }
 
+    &__link {
+      color: white;
+    }
+
     &-red {
       background-color: $clr-red;
       .nav__favorite {

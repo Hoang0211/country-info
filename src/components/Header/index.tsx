@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
@@ -21,7 +22,11 @@ const Header = () => {
           <GiHamburgerMenu className="icon nav__hamburger-icon" />
         </button>
 
-        <button className="nav__logo">Country API</button>
+        <button className="nav__logo">
+          <NavLink className="nav__link" to={`/`}>
+            Country API
+          </NavLink>
+        </button>
 
         <button className="nav__favorite">
           <span className="icon nav__favorite-icon">
