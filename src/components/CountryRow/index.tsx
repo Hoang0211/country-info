@@ -21,7 +21,7 @@ const CountryRow = ({ country }: CountryProps) => {
       <td>
         <Link to={`/country/${country.commonName}`}>{country.commonName}</Link>
       </td>
-      <td>{country.capital}</td>
+      <td>{country.capital ? country.capital : 'N/A'}</td>
       <td>{country.region}</td>
       <td>{country.population.toLocaleString('en-us')}</td>
       <td className={`country-row__favorite country-row__favorite-${theme}`}>

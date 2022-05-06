@@ -20,6 +20,10 @@ const CountryCard = ({ country }: CountryProps) => {
   }
 
   const languagesTextConvert = (languages: object) => {
+    if (languages === undefined) {
+      return 'Languages used in this country data is currently unavailable'
+    }
+
     let languagesArr: string[] = []
 
     for (const [, value] of Object.entries(languages)) {
@@ -44,6 +48,10 @@ const CountryCard = ({ country }: CountryProps) => {
   }
 
   const bordersTextConvert = (borders: string[]) => {
+    if (borders === undefined) {
+      return "This country's borders data is currently unavailable"
+    }
+
     let content = ''
 
     if (borders.length === 0) {
@@ -54,6 +62,26 @@ const CountryCard = ({ country }: CountryProps) => {
       content = `Border countries are ${borders[0]} and ${borders[1]}`
     } else {
       content = `Border countries are ${arrIterate(borders)}`
+    }
+
+    return content
+  }
+
+  const capitalsTextConvert = (capitals: string[]) => {
+    if (capitals === undefined) {
+      return 'N/A'
+    }
+
+    let content = ''
+
+    if (capitals.length === 0) {
+      content = 'N/A'
+    } else if (capitals.length === 1) {
+      content = capitals[0]
+    } else if (capitals.length === 2) {
+      content = `${capitals[0]} and ${capitals[1]}`
+    } else {
+      content = arrIterate(capitals)
     }
 
     return content
@@ -77,7 +105,9 @@ const CountryCard = ({ country }: CountryProps) => {
           )}
         </div>
       </div>
-      <p className="country-card__capital">{country.capital}</p>
+      <p className="country-card__capital">
+        {capitalsTextConvert(country.capital)}
+      </p>
       <img
         className="country-card__img"
         alt={`${country.commonName} img`}
