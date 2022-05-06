@@ -5,6 +5,8 @@ import { AxiosError } from 'axios'
 export const GET_COUNTRY_REQUEST = 'GET_COUNTRY'
 export const GET_COUNTRY_SUCCESS = 'GET_COUNTRY_SUCCESS'
 export const GET_COUNTRY_FAILURE = 'GET_COUNTRY_FAILURE'
+export const ADD_FAVORITE_COUNTRY = 'ADD_FAVORITE_COUNTRY'
+export const REMOVE_FAVORITE_COUNTRY = 'REMOVE_FAVORITE_COUNTRY'
 
 // Enum
 export enum Theme {
@@ -45,6 +47,20 @@ export type GetCountryFailureAction = {
   }
 }
 
+export type AddFavoriteCountryAction = {
+  type: typeof ADD_FAVORITE_COUNTRY
+  payload: {
+    countryName: string
+  }
+}
+
+export type RemoveFavoriteCountryAction = {
+  type: typeof REMOVE_FAVORITE_COUNTRY
+  payload: {
+    countryName: string
+  }
+}
+
 // For reducer
 export type CountryState = {
   isLoading: boolean
@@ -57,6 +73,8 @@ export type CountryActions =
   | GetCountryRequestAction
   | GetCountrySuccessAction
   | GetCountryFailureAction
+  | AddFavoriteCountryAction
+  | RemoveFavoriteCountryAction
 
 export type AppState = {
   country: CountryState

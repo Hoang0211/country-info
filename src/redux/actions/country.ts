@@ -7,6 +7,8 @@ import {
   GET_COUNTRY_FAILURE,
   CountryActions,
   isAxiosError,
+  ADD_FAVORITE_COUNTRY,
+  REMOVE_FAVORITE_COUNTRY,
 } from '../../types'
 
 export function getCountryRequest(): CountryActions {
@@ -29,6 +31,24 @@ export function getCountryFailure(errorMsg: string): CountryActions {
     type: GET_COUNTRY_FAILURE,
     payload: {
       errorMsg,
+    },
+  }
+}
+
+export function addFavoriteCountry(countryName: string): CountryActions {
+  return {
+    type: ADD_FAVORITE_COUNTRY,
+    payload: {
+      countryName,
+    },
+  }
+}
+
+export function removeFavoriteCountry(countryName: string): CountryActions {
+  return {
+    type: REMOVE_FAVORITE_COUNTRY,
+    payload: {
+      countryName,
     },
   }
 }

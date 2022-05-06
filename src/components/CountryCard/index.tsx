@@ -1,10 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md'
 
+import { addFavoriteCountry, removeFavoriteCountry } from '../../redux/actions'
 import { CountryProps } from '../../types'
 import './countryCard.scss'
 
 const CountryCard = ({ country }: CountryProps) => {
+  const dispatch = useDispatch()
+
   const arrIterate = (arr: string[]) => {
     let text = ''
     arr.forEach((item) => {
@@ -99,9 +103,17 @@ const CountryCard = ({ country }: CountryProps) => {
         <p className="country-card__common-name">{country.commonName}</p>
         <div className="country-card__favorite">
           {country.favorite ? (
-            <MdFavorite className="icon country-card__icon" />
+            <MdFavorite
+              className="icon country-card__icon"
+              onClick={() =>
+                dispatch(removeFavoriteCountry(country.commonName))
+              }
+            />
           ) : (
-            <MdOutlineFavoriteBorder className="icon country-card__icon" />
+            <MdOutlineFavoriteBorder
+              className="icon country-card__icon"
+              onClick={() => dispatch(addFavoriteCountry(country.commonName))}
+            />
           )}
         </div>
       </div>

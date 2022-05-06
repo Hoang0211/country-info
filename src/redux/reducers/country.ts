@@ -4,6 +4,8 @@ import {
   GET_COUNTRY_REQUEST,
   GET_COUNTRY_SUCCESS,
   GET_COUNTRY_FAILURE,
+  ADD_FAVORITE_COUNTRY,
+  REMOVE_FAVORITE_COUNTRY,
 } from '../../types'
 
 export default function country(
@@ -47,6 +49,52 @@ export default function country(
         ...state,
         isLoading: false,
         error: action.payload.errorMsg,
+      }
+    }
+    case ADD_FAVORITE_COUNTRY: {
+      // Deep clone allCountries state and update it
+      const clonedAllCountries = state.allCountries.map((country) => {
+        if (country.commonName === action.payload.countryName) {
+          country.favorite = !country.favorite
+        }
+        return country
+      })
+
+      // Deep clone favoriteCountries state and update it
+      const clonedFavCountries = state.favoriteCountries.map(
+        (country) => country
+      )
+      const addedCountry = clonedAllCountries.find(
+        (country) => country.commonName === action.payload.countryName
+      )
+      if (addedCountry) {
+        clonedFavCountries.push(addedCountry)
+      }
+
+      return {
+        ...state,
+        allCountries: clonedAllCountries,
+        favoriteCountries: clonedFavCountries,
+      }
+    }
+    case REMOVE_FAVORITE_COUNTRY: {
+      // Deep clone allCountries state and update it
+      const clonedAllCountries = state.allCountries.map((country) => {
+        if (country.commonName === action.payload.countryName) {
+          country.favorite = !country.favorite
+        }
+        return country
+      })
+
+      // Deep clone favoriteCountries state and update it
+      const clonedFavCountries = state.favoriteCountries.filter(
+        (country) => country.commonName !== action.payload.countryName
+      )
+
+      return {
+        ...state,
+        allCountries: clonedAllCountries,
+        favoriteCountries: clonedFavCountries,
       }
     }
     default:
