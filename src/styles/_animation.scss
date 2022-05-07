@@ -6,3 +6,14 @@
     transform: rotateZ(360deg);
   }
 }
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-120%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

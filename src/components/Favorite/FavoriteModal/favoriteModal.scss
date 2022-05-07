@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+
+.modal {
+  &__header {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-red {
+      color: $clr-red;
+    }
+    &-blue {
+      color: $clr-blue;
+    }
+    &-green {
+      color: $clr-green;
+    }
+    &-purple {
+      color: $clr-purple;
+    }
+  }
+
+  &__close {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+}

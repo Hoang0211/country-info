@@ -1,4 +1,3 @@
-import React from 'react'
 import { AxiosError } from 'axios'
 
 // Action types
@@ -7,6 +6,7 @@ export const GET_COUNTRY_SUCCESS = 'GET_COUNTRY_SUCCESS'
 export const GET_COUNTRY_FAILURE = 'GET_COUNTRY_FAILURE'
 export const ADD_FAVORITE_COUNTRY = 'ADD_FAVORITE_COUNTRY'
 export const REMOVE_FAVORITE_COUNTRY = 'REMOVE_FAVORITE_COUNTRY'
+export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 
 // Enum
 export enum Theme {
@@ -14,6 +14,11 @@ export enum Theme {
   Blue = 'blue',
   Green = 'green',
   Purple = 'purple',
+}
+
+// A modal
+export type ModalAction = {
+  type: typeof TOGGLE_MODAL
 }
 
 // A country
@@ -62,6 +67,10 @@ export type RemoveFavoriteCountryAction = {
 }
 
 // For reducer
+export type ModalState = {
+  showModal: boolean
+}
+
 export type CountryState = {
   isLoading: boolean
   error: string
@@ -78,6 +87,7 @@ export type CountryActions =
 
 export type AppState = {
   country: CountryState
+  modal: ModalState
 }
 
 // Type guard
@@ -88,10 +98,4 @@ export function isAxiosError(candidate: any): candidate is AxiosError {
 // Props
 export type CountryProps = {
   country: Country
-}
-
-export type FormProps = {
-  input: string
-  inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
-  inputRef: React.RefObject<HTMLInputElement>
 }

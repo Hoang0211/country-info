@@ -1,8 +1,13 @@
 import React, { useContext } from 'react'
 
 import { ThemeContext } from '../../context/theme-context'
-import { FormProps } from '../../types'
 import './form.scss'
+
+export type FormProps = {
+  input: string
+  inputHandler: (event: React.ChangeEvent<HTMLInputElement>) => void
+  inputRef: React.RefObject<HTMLInputElement>
+}
 
 const Form = ({ input, inputHandler, inputRef }: FormProps) => {
   const { theme } = useContext(ThemeContext)

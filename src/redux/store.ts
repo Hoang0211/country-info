@@ -11,6 +11,9 @@ const initState: AppState = {
     allCountries: [],
     favoriteCountries: [],
   },
+  modal: {
+    showModal: false,
+  },
 }
 
 export default function makeStore(initialState = initState) {
