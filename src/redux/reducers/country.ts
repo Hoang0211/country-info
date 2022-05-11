@@ -26,17 +26,33 @@ export default function country(
       }
     }
     case GET_COUNTRY_SUCCESS: {
-      const allCountries = action.payload.data.map((country) => ({
-        commonName: country.name.common,
-        officialName: country.name.official,
-        capital: country.capital,
-        flag: country.flags.png,
-        population: country.population,
-        languages: country.languages,
-        borders: country.borders,
-        region: country.region,
-        favorite: false,
-      }))
+      const allCountries = action.payload.data.map((country) => {
+        if (country.capital === undefined) {
+          return {
+            commonName: country.name.common,
+            officialName: country.name.official,
+            capital: ['N/A'],
+            flag: country.flags.png,
+            population: country.population,
+            languages: country.languages,
+            borders: country.borders,
+            region: country.region,
+            favorite: false,
+          }
+        } else {
+          return {
+            commonName: country.name.common,
+            officialName: country.name.official,
+            capital: country.capital,
+            flag: country.flags.png,
+            population: country.population,
+            languages: country.languages,
+            borders: country.borders,
+            region: country.region,
+            favorite: false,
+          }
+        }
+      })
 
       return {
         ...state,

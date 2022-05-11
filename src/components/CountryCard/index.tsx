@@ -72,10 +72,6 @@ const CountryCard = ({ country }: CountryProps) => {
   }
 
   const capitalsTextConvert = (capitals: string[]) => {
-    if (capitals === undefined) {
-      return 'N/A'
-    }
-
     let content = ''
 
     if (capitals.length === 0) {
