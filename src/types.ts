@@ -16,6 +16,18 @@ export enum Theme {
   Purple = 'purple',
 }
 
+export enum SortBased {
+  Name = 'name',
+  Capital = 'capital',
+  Region = 'region',
+  Population = 'population',
+}
+
+export enum SortOrder {
+  Ascending = 'ascending',
+  Descending = 'descending',
+}
+
 // A modal
 export type ModalAction = {
   type: typeof TOGGLE_MODAL

@@ -68,6 +68,21 @@
         text-align: center;
         border-bottom: 1px solid #ddd;
       }
+
+      th {
+        white-space: nowrap;
+      }
+
+      .table__header-name,
+      .table__header-capital,
+      .table__header-region,
+      .table__header-population {
+        cursor: pointer;
+      }
+
+      .icon-sort {
+        font-size: 0.75rem;
+      }
     }
   }
 }
