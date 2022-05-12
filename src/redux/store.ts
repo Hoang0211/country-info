@@ -6,7 +6,7 @@ import createRootReducer from './reducers'
 
 const initState: AppState = {
   country: {
-    isLoading: false,
+    isLoading: true,
     error: '',
     allCountries: [],
     favoriteCountries: [],

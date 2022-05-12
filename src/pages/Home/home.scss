@@ -73,7 +73,7 @@
         white-space: nowrap;
       }
 
-      .table__header-name,
+      .table__header-commonName,
       .table__header-capital,
       .table__header-region,
       .table__header-population {
@@ -82,6 +82,35 @@
 
       .icon-sort {
         font-size: 0.75rem;
+      }
+
+      .country-row {
+        &__img {
+          width: 100%;
+          max-width: 100px;
+        }
+
+        &__link {
+          color: black;
+        }
+
+        &__icon {
+          font-size: 1.25rem;
+          cursor: pointer;
+
+          &-red {
+            color: $clr-red;
+          }
+          &-blue {
+            color: $clr-blue;
+          }
+          &-green {
+            color: $clr-green;
+          }
+          &-purple {
+            color: $clr-purple;
+          }
+        }
       }
     }
   }

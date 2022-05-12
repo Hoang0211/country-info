@@ -10,7 +10,7 @@ import {
 
 export default function country(
   state: CountryState = {
-    isLoading: false,
+    isLoading: true,
     error: '',
     allCountries: [],
     favoriteCountries: [],
