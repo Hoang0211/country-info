@@ -28,7 +28,10 @@
     "sass": "^1.51.0",
     "typescript": "~3.9.10"
   },
+  "homepage": "https://n3verland0211.github.io/country-info",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -52,6 +55,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.35",
+    "gh-pages": "^4.0.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.7"
   },
