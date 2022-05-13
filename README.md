@@ -1,6 +1,6 @@
 ![page load](./readme-assets/app-demo.gif)
 
-# couuntry-info
+# country-info
 
 A front-end application project created while working at Integrify.
 
