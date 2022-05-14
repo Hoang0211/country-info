@@ -16,14 +16,14 @@ A front-end application project created while working at Integrify.
 
 ## Application Features
 
-A country info web application that allow users to find information about different countries in the world. The application is deployed using GitHub Pages
+The application serves as a country info web that allows users to find information about different countries.
 
 ### Features
 
 - Simple to use interface.
 - Different theme colors.
 - Able to search for country name.
-- Able to add or remove from favorite list.
+- Able to edit favorite list.
 - Able to list the countries in ascending and descending order based on different properties.
 
 [Back To Top](#Table-Of-Contents)
@@ -32,8 +32,11 @@ A country info web application that allow users to find information about differ
 
 ## Technologies Used
 
+This project get data from REST Countries API and is deployed using GitHub Pages.
+
 - React.js
 - Redux
+- Redux Thunk
 - SCSS
 - TypeScript
 
